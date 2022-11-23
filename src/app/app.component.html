@@ -1,0 +1,55 @@
+<!-- Name: Gia Mien Le
+     Date: November 21, 2022
+     Project: Chat App
+     Professor: Victor Norman-->
+
+<!-- This whole div section is the header of the web app-->
+<div class="header">
+  <h1>Chat app</h1>
+  <div id="Pre">
+    <span id="userCell">
+      <label>Enter your name/username: </label>
+      <input type="text" [(ngModel)]="userName" (change)="setUserName()"
+    /></span>
+    <!-- the input textbox takes in the user name entered by the user and adds it to the local storage through the function "setUserName()"-->
+    <span id="colorCell">
+      <label>Pick a color: </label>
+      <input
+        id="colorBox"
+        [(colorPicker)]="color"
+        [(ngModel)]="color"
+        [style.background]="color"
+        (colorPickerChange)="setColor()"
+    /></span>
+    <!-- using the ngx-color-picker, the user is able to pick their color of choice for the text color. The textbox changes
+    according to the color picked. Similarly, the color will be added to the local storage through the function "setColor()"-->
+  </div>
+</div>
+
+<!-- This section displays username, color chosen, and messages input by the user imported from the database.-->
+<div *ngFor="let message of message$ | async" class="chatRecord">
+  <span id="time"> {{ message.timestamp.toDate() | date: "medium" }}</span>
+  <!-- Displaying time-->
+  <span id="name" style="--color:{{ message.color }}">
+    {{ message.userName }}</span
+  >
+  <!-- Displaying username-->
+  <span id="msg" style="--color:{{ message.color }}">
+    {{ message.message }}</span
+  >
+  <!--displaying textbox-->
+</div>
+
+<!--This section is where the user will input their message. Once the user hit enter, the message will be added to the
+database and displayed on the screen.-->
+<div>
+  <span id="msgCell"><label> Message box </label> </span>
+  <span>
+    <input
+      type="text"
+      [(ngModel)]="message"
+      (keyup.enter)="add()"
+      id="Msgbox"
+    />
+  </span>
+</div>

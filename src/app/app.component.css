@@ -1,0 +1,96 @@
+/* Name: Gia Mien Le
+   Date: November 21, 2022
+   Project: Chat App
+   Professor: Victor Norman
+*/
+
+/* Customization for entire page, mostly the font*/
+* {
+  /*border: 1px solid black;*/
+  font-family: 'Courier New';
+}
+
+/*Makes sure that the header "Chat app" and the username and color input boxes is
+still visible on the screen even when scrolling */
+.header{
+  position: sticky;
+  top: 0%;
+}
+
+/* Customizing the header "Chat app" of the web app*/
+h1{
+  padding: 5% 1%;
+  margin: auto;
+  font-size: 6vh;
+  background-color: teal;
+  color: white;
+}
+
+/* Customizing the element that contains the username and color input boxes*/
+#Pre {
+  background-color:lightblue;
+  padding: 1%;
+  font-size: smaller;
+}
+
+/*Customizing the username input box*/
+#Pre > #userCell {
+  margin: 1%;
+  white-space: nowrap;
+}
+
+/*Customizing the color input box*/
+#Pre > #colorCell{
+  white-space: nowrap;
+}
+
+/*This decorates the area where the timestamp, username, and message is displayed. I used grid to divide up the areas
+and to easily align the texts.*/
+.chatRecord {
+  display: grid;
+  grid-template-columns: 1fr 1fr 7fr;
+  grid-column-gap: 1%;
+}
+
+/*Customizing the timestamp component displayed in the web app*/
+#time {
+  color: lightskyblue;
+  font-size: 1.5vh;
+  margin: auto;
+  padding: 2%;
+  white-space: nowrap;
+}
+
+/* Customizing the username component displayed in the web app. I created a border around every username,
+however, if the user does not input any username, then there will just be an empty box. var(--color)
+basically takes the color input from the html and apply it to the components through CSS.*/
+#name {
+  color: var(--color);
+  border: 1px solid var(--color);
+  border-radius: 0.25em;
+  padding: 0%;
+  text-align: center;
+  justify-content: center;
+  font-size: smaller;
+}
+
+/*Customizing the message component displayed in the web app. var(--color) is used to take color input from the user
+and apply it to the components in CSS.*/
+#msg {
+  color: var(--color);
+  justify-content: center;
+  font-size: smaller;
+}
+
+/*Customizing the component that contains the message input box*/
+#msgCell {
+  font-size: smaller;
+}
+
+/*Customizing the message input box*/
+#Msgbox {
+  width: 80%;
+  margin: auto;
+  padding: 0% 1.5%;
+  font-size: smaller;
+}
